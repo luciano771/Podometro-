@@ -1,0 +1,69 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Podometer.Pages.Menu"
+             Title="Menu">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="CustomLabelStyle">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <!-- Agrega más setters según tus necesidades -->
+        </Style>
+
+        <Style TargetType="Picker" x:Key="CustomPickerStyle">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="TextColor" Value="#333333" />
+            <Setter Property="BackgroundColor" Value="#F3F3F3" />
+            <Setter Property="HeightRequest" Value="50" />
+            <!-- Agrega más setters según tus necesidades -->
+        </Style>
+
+        <Style TargetType="Entry" x:Key="CustomEntryStyle">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="Keyboard" Value="Numeric" />
+            <!-- Agrega más setters según tus necesidades -->
+        </Style>
+
+        <Style TargetType="Button" x:Key="CustomButtonStyle">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="#007BFF" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="HeightRequest" Value="50" />
+            <!-- Agrega más setters según tus necesidades -->
+        </Style>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <Label Style="{StaticResource CustomLabelStyle}" />
+        <Label Style="{StaticResource CustomLabelStyle}" />
+        <Picker x:Name="Genero"
+                Title="Seleccione su genero"
+                SelectedIndexChanged="Genero_Changed"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontSize="24">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Masculino</x:String>
+                    <x:String>Femenino</x:String>
+                    <x:String>Otro</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+        <Label Style="{StaticResource CustomLabelStyle}" />
+        <Entry x:Name="altura" Placeholder="Ingrese su altura en cm" 
+               Style="{StaticResource CustomEntryStyle}" />
+        <Label Style="{StaticResource CustomLabelStyle}" />
+        <Entry x:Name="Peso" Placeholder="Ingrese su peso en kg" 
+               Style="{StaticResource CustomEntryStyle}" />
+        <Label Style="{StaticResource CustomLabelStyle}" />
+        <Label Style="{StaticResource CustomLabelStyle}" />
+        <Button Text="Cargar datos" Clicked="Volver_Clicked"
+                Style="{StaticResource CustomButtonStyle}" />
+    </VerticalStackLayout>
+</ContentPage>

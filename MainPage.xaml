@@ -1,0 +1,42 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Podometer.MainPage"
+             NavigationPage.HasNavigationBar="True">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label" x:Key="CustomLabelStyle">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="#333333" />
+            <Setter Property="FontFamily" Value="Arial" />
+            <!-- Agrega más setters según tus necesidades -->
+        </Style>
+
+        <Style TargetType="Button" x:Key="CustomButtonStyle">
+            <Setter Property="FontSize" Value="21" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="#007BFF" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="HeightRequest" Value="50" />
+            <!-- Agrega más setters según tus necesidades -->
+        </Style>
+    </ContentPage.Resources>
+
+    <NavigationPage.TitleView>
+        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" HeightRequest="40" Padding="10">
+            <Label Text="Podómetro" Style="{StaticResource CustomLabelStyle}" FontAttributes="Bold" TextColor="White" />
+            <Button x:Name="cargar" Text="Cargar datos" Clicked="Cargar_Clicked" Style="{StaticResource CustomButtonStyle}" Margin="0,0,10,0" BackgroundColor="Transparent" FontSize="20"/>
+        </FlexLayout>
+    </NavigationPage.TitleView>
+
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="20">
+            <Label x:Name="StepLabel" Text="Pasos: 0" Style="{StaticResource CustomLabelStyle}" />
+            <Button x:Name="Stop" Text="Stop" Clicked="Stop_Click" Style="{StaticResource CustomButtonStyle}" />
+            <Label x:Name="Distancia" Text="Distancia recorrida: " Style="{StaticResource CustomLabelStyle}" IsVisible="false" />
+            <Label x:Name="Calorias" Text="Calorias quemadas: " Style="{StaticResource CustomLabelStyle}" IsVisible="false"/>
+            <Label x:Name="Tiempo" Text="Tiempo Total: " Style="{StaticResource CustomLabelStyle}" IsVisible="false" />
+            <Button x:Name="Reiniciar" Text="Reiniciar" Clicked="Reiniciar_Clicked" Style="{StaticResource CustomButtonStyle}" />
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
